@@ -1,0 +1,45 @@
+body {
+  box-sizing: border-box;
+  font: 100%/1.5 system-ui, sans-serif;
+  max-width: 80rem;
+  margin: auto;
+  padding: 1rem;
+  color: #17242b;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1rem;
+}
+
+h1,
+header p {
+  margin: 0;
+}
+
+.time-filter {
+  display: grid;
+  gap: 0.2rem;
+  width: min(15rem, 100%);
+}
+
+.time-filter input {
+  width: 100%;
+  margin: 0;
+}
+
+.time-filter em,
+.map-note {
+  color: #47555d;
+}
+
+.map-note {
+  margin: 0.65rem 0;
+}
+
+#map-status:empty {
+  display: none;
+}

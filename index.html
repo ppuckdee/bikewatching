@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bikewatching</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="map.css" />
+    <script type="module" src="map.js"></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>🚲 Bikewatching</h1>
+        <p>Bluebikes trips in Boston and Cambridge in March 2024.</p>
+      </div>
+      <label class="time-filter" for="time-slider">
+        Filter by time
+        <input id="time-slider" type="range" min="-1" max="1440" value="-1" aria-valuetext="Any time" disabled />
+        <time id="selected-time" hidden></time>
+        <em id="any-time">(any time)</em>
+      </label>
+    </header>
+
+    <main>
+      <p class="map-note" id="map-note">
+        Green lines show bike lanes. Circle area shows station traffic. Hover over a station for its counts.
+      </p>
+      <p id="map-status" role="status">Loading the map and trip data…</p>
+      <div id="map" aria-label="Bluebikes station map" aria-describedby="map-note"></div>
+      <ul class="legend" aria-label="Station traffic direction">
+        <li style="--departure-ratio: 1">More departures</li>
+        <li style="--departure-ratio: 0.5">Balanced</li>
+        <li style="--departure-ratio: 0">More arrivals</li>
+      </ul>
+      <p class="map-note">The time filter includes arrivals and departures within one hour of the selected time.</p>
+    </main>
+  </body>
+</html>

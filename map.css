@@ -1,0 +1,58 @@
+#map {
+  position: relative;
+  height: clamp(24rem, 65vh, 44rem);
+  overflow: hidden;
+  background: #eef2f3;
+  border-radius: 8px;
+}
+
+.station-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.station-overlay circle,
+.legend li {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --station-color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+}
+
+.station-overlay circle {
+  fill: var(--station-color);
+  fill-opacity: 0.65;
+  stroke: white;
+  stroke-width: 1px;
+  pointer-events: auto;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.2rem;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  list-style: none;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.legend li::before {
+  content: "";
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: var(--station-color);
+}
